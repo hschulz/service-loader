@@ -1,6 +1,6 @@
 {
     "name": "hschulz/service-loader",
-    "description": "Java like streams in PHP.",
+    "description": "Abstract service management.",
     "type": "library",
     "keywords": ["services", "service", "loader"],
     "license": "BSD-3-Clause",

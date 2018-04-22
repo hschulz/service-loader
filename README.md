@@ -1,4 +1,4 @@
-IOStreams
-=========
+Service loader
+==============
 
-Java like streams in PHP
+Abstract service management.
