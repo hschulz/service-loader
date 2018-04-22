@@ -1,0 +1,27 @@
+{
+    "name": "hschulz/service-loader",
+    "description": "Java like streams in PHP.",
+    "type": "library",
+    "keywords": ["services", "service", "loader"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Hauke Schulz",
+            "email": "hauke27@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "hschulz\\ServiceLoader\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "apcu-autoloader": true
+    }
+}
