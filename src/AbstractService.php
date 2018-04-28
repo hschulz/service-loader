@@ -2,12 +2,11 @@
 
 namespace hschulz\ServiceLoader;
 
-use \hschulz\ServiceLoader\Service;
-
 /**
  *
  */
-abstract class AbstractService implements Service {
+abstract class AbstractService implements Service
+{
 
     /**
      *
@@ -25,7 +24,8 @@ abstract class AbstractService implements Service {
      *
      * @param string $type
      */
-    function __construct(string $type) {
+    public function __construct(string $type)
+    {
         $this->type = $type;
     }
 
@@ -33,7 +33,8 @@ abstract class AbstractService implements Service {
      *
      * @return string
      */
-    public function getType(): string {
+    public function getType(): string
+    {
         return $this->type;
     }
 
@@ -42,7 +43,8 @@ abstract class AbstractService implements Service {
      * @param string $type
      * @return void
      */
-    public function setType(string $type): void {
+    public function setType(string $type): void
+    {
         $this->type = $type;
     }
 
@@ -50,7 +52,8 @@ abstract class AbstractService implements Service {
      *
      * @return string
      */
-    public function getName(): string {
+    public function getName(): string
+    {
         return $this->name;
     }
 
@@ -59,7 +62,8 @@ abstract class AbstractService implements Service {
      * @param string $name
      * @return void
      */
-    public function setName(string $name): void {
+    public function setName(string $name): void
+    {
         $this->name = $name;
     }
 }

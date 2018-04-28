@@ -2,10 +2,11 @@
 
 namespace hschulz\ServiceLoader\Tests;
 
-use \PHPUnit\Framework\TestCase;
 use \hschulz\ServiceLoader\AbstractService;
+use \PHPUnit\Framework\TestCase;
 
-final class AbstractServiceTest extends TestCase {
+final class AbstractServiceTest extends TestCase
+{
 
     /**
      *
@@ -13,7 +14,8 @@ final class AbstractServiceTest extends TestCase {
      */
     protected $mockService = null;
 
-    protected function setUp() {
+    protected function setUp()
+    {
         $this->mockService = $this->getMockForAbstractClass(
             AbstractService::class, ['Testing']
         );
@@ -21,27 +23,30 @@ final class AbstractServiceTest extends TestCase {
         $this->mockService->setName('TestService');
     }
 
-    protected function tearDown() {
+    protected function tearDown()
+    {
         $this->mockService = null;
     }
 
-    public function testCanCreateServiceWithType() {
+    public function testCanCreateServiceWithType()
+    {
         $this->assertEquals('Testing', $this->mockService->getType());
     }
 
-    public function testCanSetName() {
+    public function testCanSetName()
+    {
         $this->assertEquals('TestService', $this->mockService->getName());
     }
 
-    public function testCanOverwriteServiceType() {
-
+    public function testCanOverwriteServiceType()
+    {
         $this->mockService->setType('UnitTest');
 
         $this->assertEquals('UnitTest', $this->mockService->getType());
     }
 
-    public function testCanOverwriteServiceName() {
-
+    public function testCanOverwriteServiceName()
+    {
         $this->mockService->setName('UnitTest');
 
         $this->assertEquals('UnitTest', $this->mockService->getName());
