@@ -6,7 +6,8 @@ namespace hschulz\ServiceLoader;
  * This interface describes a service that can be managed by the ServiceLoader
  * interface.
  */
-interface Service {
+interface Service
+{
 
     /**
      * Returns the service type.

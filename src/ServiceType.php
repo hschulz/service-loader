@@ -5,13 +5,14 @@ namespace hschulz\ServiceLoader;
 /**
  *
  */
-interface ServiceType {
-
+interface ServiceType
+{
     /**
      *
      * @var string
      */
     const CONFIG = 'config';
+
     /**
      *
      * @var string
