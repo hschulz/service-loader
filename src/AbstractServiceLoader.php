@@ -4,6 +4,10 @@ namespace hschulz\ServiceLoader;
 
 use \hschulz\ServiceLoader\Service;
 use \hschulz\ServiceLoader\ServiceLoader;
+use \InvalidArgumentException;
+use function \array_key_exists;
+use function \md5;
+use function \reset;
 
 /**
  *
@@ -11,23 +15,24 @@ use \hschulz\ServiceLoader\ServiceLoader;
 abstract class AbstractServiceLoader implements ServiceLoader {
 
     /**
-     *
+     * The services; grouped by type.
      * @var array
      */
     private $services = [];
 
     /**
-     *
+     * Will create an empty service loader.
      */
     public function __construct() {
         $this->services = [];
     }
 
     /**
+     * Returns the first service found for a given type.
      *
-     * @param string $type
-     * @param string $name
-     * @return Service|null
+     * @param string $type The service type
+     * @param string $name The specific name for the requested service
+     * @return Service|null The service found for the given values or null
      */
     public function getService(string $type, string $name = ''): ?Service {
 
@@ -45,19 +50,23 @@ abstract class AbstractServiceLoader implements ServiceLoader {
     }
 
     /**
+     * Returns all registered services for a given type.
      *
-     * @param string $type
-     * @return array
+     * @param string $type The requested service type
+     * @return array The services
      */
     public function getServices(string $type): array {
         return $this->services[$type] ?? [];
     }
 
     /**
+     * Registers a service.
+     * Throws an InvalidArgumentException when the service has no name or
+     * if there was already a service registered with the same name.
      *
-     * @param Service $service
+     * @param Service $service The service
      * @throws InvalidArgumentException
-     * @return string
+     * @return string The name the service was registered with
      */
     public function register(Service $service): string {
 
@@ -65,7 +74,7 @@ abstract class AbstractServiceLoader implements ServiceLoader {
         $name = $service->getName();
 
         if ($type === '') {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
 
         $this->services[$type] = $this->services[$type] ?? [];
@@ -84,7 +93,7 @@ abstract class AbstractServiceLoader implements ServiceLoader {
         }
 
         if (isset($this->services[$type][$name])) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
 
         $this->services[$type][$name] = $service;
@@ -93,24 +102,22 @@ abstract class AbstractServiceLoader implements ServiceLoader {
     }
 
     /**
+     * Deletes the service with the given name.
      *
-     * @param string $name
-     * @return bool
+     * @param string $name The service name
+     * @return bool True when the service has been deleted.
      */
     public function unregister(string $name): bool {
 
-        $result = false;
+        foreach ($this->services as $type => $services) {
 
-        foreach ($this->services as $type) {
-
-            $result = array_search($name, $this->services[$type]);
-
-            if ($result !== false) {
+            if (array_key_exists($name, $services)) {
 
                 unset($this->services[$type][$name]);
+                return true;
             }
         }
 
-        return (bool) $result;
+        return false;
     }
 }

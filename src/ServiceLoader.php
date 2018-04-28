@@ -3,6 +3,7 @@
 namespace hschulz\ServiceLoader;
 
 use \hschulz\ServiceLoader\Service;
+use \InvalidArgumentException;
 
 /**
  *
