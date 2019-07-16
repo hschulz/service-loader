@@ -2,8 +2,8 @@
 
 namespace hschulz\ServiceLoader;
 
-use \InvalidArgumentException;
 use function \array_key_exists;
+use \InvalidArgumentException;
 use function \md5;
 use function \reset;
 
