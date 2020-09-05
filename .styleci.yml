@@ -9,7 +9,6 @@ enabled:
     - const_separation
     - dir_constant
     - hash_to_slash_comment
-    - lowercase_cast
     - native_function_casing
     - new_with_braces
     - no_alias_functions
