@@ -4,7 +4,6 @@ enabled:
     - alpha_ordered_imports
     - combine_consecutive_issets
     - combine_consecutive_unsets
-    - concat_with_spaces
     - const_separation
     - dir_constant
     - function_typehint_space
