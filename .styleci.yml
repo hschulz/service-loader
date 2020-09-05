@@ -19,7 +19,6 @@ enabled:
     - no_trailing_comma_in_singleline_array
     - no_unneeded_control_parentheses
     - no_unused_imports
-    - no_whitespace_in_blank_line
     - phpdoc_no_package
     - phpdoc_scalar
     - self_accessor
