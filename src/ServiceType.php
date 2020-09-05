@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Hschulz\ServiceLoader;
 
@@ -13,23 +13,23 @@ interface ServiceType
      *
      * @var string
      */
-    const CONFIG = 'config';
+    public const CONFIG = 'config';
 
     /**
      *
      * @var string
      */
-    const DATABASE = 'database';
+    public const DATABASE = 'database';
 
     /**
      *
      * @var string
      */
-    const LOGGER = 'logger';
+    public const LOGGER = 'logger';
 
     /**
      *
      * @var string
      */
-    const MAIL = 'mail';
+    public const MAIL = 'mail';
 }

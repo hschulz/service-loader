@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Hschulz\ServiceLoader;
 
@@ -11,7 +11,6 @@ use InvalidArgumentException;
  */
 interface ServiceLoader
 {
-
     /**
      *
      * @param Service $service

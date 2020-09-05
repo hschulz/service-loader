@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Hschulz\ServiceLoader;
 
-use InvalidArgumentException;
 use function array_key_exists;
+use InvalidArgumentException;
 use function md5;
 use function reset;
 
