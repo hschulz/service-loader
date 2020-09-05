@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Hschulz\ServiceLoader\Tests\Unit;
 
@@ -18,7 +18,8 @@ final class AbstractServiceTest extends TestCase
     protected function setUp(): void
     {
         $this->mockService = $this->getMockForAbstractClass(
-            AbstractService::class, ['Testing']
+            AbstractService::class,
+            ['Testing']
         );
 
         $this->mockService->setName('TestService');

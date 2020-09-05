@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Hschulz\ServiceLoader\Tests\Unit;
 
@@ -27,7 +27,8 @@ final class CommonServiceLoaderTest extends TestCase
     {
         $this->sl = new CommonServiceLoader();
         $this->mockService = $this->getMockForAbstractClass(
-            AbstractService::class, ['Testing']
+            AbstractService::class,
+            ['Testing']
         );
     }
 
@@ -47,7 +48,8 @@ final class CommonServiceLoaderTest extends TestCase
     public function testCanRegisterAnotherService(): void
     {
         $service = $this->getMockForAbstractClass(
-            AbstractService::class, ['AnotherTest']
+            AbstractService::class,
+            ['AnotherTest']
         );
 
         $service->setName('TestService2');
@@ -82,7 +84,8 @@ final class CommonServiceLoaderTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         $service = $this->getMockForAbstractClass(
-            AbstractService::class, ['']
+            AbstractService::class,
+            ['']
         );
 
         $this->sl->register($service);
