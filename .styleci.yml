@@ -8,7 +8,6 @@ enabled:
     - combine_consecutive_unsets
     - const_separation
     - dir_constant
-    - function_typehint_space
     - hash_to_slash_comment
     - lowercase_cast
     - native_function_casing
