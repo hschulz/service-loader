@@ -1,8 +1,10 @@
 <?php
 
-namespace hschulz\ServiceLoader;
+declare(strict_types = 1);
 
-use \InvalidArgumentException;
+namespace Hschulz\ServiceLoader;
+
+use InvalidArgumentException;
 
 /**
  *

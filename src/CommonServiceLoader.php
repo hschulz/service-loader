@@ -1,6 +1,8 @@
 <?php
 
-namespace hschulz\ServiceLoader;
+declare(strict_types = 1);
+
+namespace Hschulz\ServiceLoader;
 
 /**
  * Concrete implementation of the AbstractServiceLoader without any changes

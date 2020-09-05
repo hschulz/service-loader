@@ -11,21 +11,21 @@
         }
     ],
     "require": {
-        "php": "^7.1.0"
+        "php": "^7.4.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.1.4 || ^8.0.0"
+        "phpunit/phpunit": "^9.3.8"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "hschulz\\ServiceLoader\\": "src"
+            "Hschulz\\ServiceLoader\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "hschulz\\ServiceLoader\\Tests\\": "Tests"
+            "Hschulz\\ServiceLoader\\Tests\\": "Tests"
         }
     },
     "config": {

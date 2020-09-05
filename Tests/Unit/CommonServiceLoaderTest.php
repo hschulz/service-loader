@@ -1,28 +1,29 @@
 <?php
 
-namespace hschulz\ServiceLoader\Tests;
+declare(strict_types = 1);
 
-use \hschulz\ServiceLoader\AbstractService;
-use \hschulz\ServiceLoader\CommonServiceLoader;
-use \InvalidArgumentException;
-use \PHPUnit\Framework\TestCase;
+namespace Hschulz\ServiceLoader\Tests\Unit;
+
+use Hschulz\ServiceLoader\AbstractService;
+use Hschulz\ServiceLoader\CommonServiceLoader;
+use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
 
 final class CommonServiceLoaderTest extends TestCase
 {
-
     /**
      *
      * @var AbstractService
      */
-    protected $mockService = null;
+    protected ?AbstractService $mockService = null;
 
     /**
      *
      * @var CommonServiceLoader
      */
-    protected $sl = null;
+    protected ?CommonServiceLoader $sl = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->sl = new CommonServiceLoader();
         $this->mockService = $this->getMockForAbstractClass(
@@ -30,20 +31,20 @@ final class CommonServiceLoaderTest extends TestCase
         );
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->sl = null;
         $this->mockService = null;
     }
 
-    public function testCanRegisterService()
+    public function testCanRegisterService(): void
     {
         $this->mockService->setName('TestService');
 
         $this->assertEquals('TestService', $this->sl->register($this->mockService));
     }
 
-    public function testCanRegisterAnotherService()
+    public function testCanRegisterAnotherService(): void
     {
         $service = $this->getMockForAbstractClass(
             AbstractService::class, ['AnotherTest']
@@ -54,7 +55,7 @@ final class CommonServiceLoaderTest extends TestCase
         $this->assertEquals('TestService2', $this->sl->register($service));
     }
 
-    public function testCanNotRegisterSameNameTwice()
+    public function testCanNotRegisterSameNameTwice(): void
     {
         $this->expectException(InvalidArgumentException::class);
 
@@ -64,19 +65,19 @@ final class CommonServiceLoaderTest extends TestCase
         $this->assertEquals('TestService', $this->sl->register($this->mockService));
     }
 
-    public function testCanUnregisterService()
+    public function testCanUnregisterService(): void
     {
         $name = $this->sl->register($this->mockService);
 
         $this->assertTrue($this->sl->unregister($name));
     }
 
-    public function testCanNotUnregisterUnknownServiceName()
+    public function testCanNotUnregisterUnknownServiceName(): void
     {
         $this->assertFalse($this->sl->unregister('test'));
     }
 
-    public function testCanNotRegisterServiceWithoutType()
+    public function testCanNotRegisterServiceWithoutType(): void
     {
         $this->expectException(InvalidArgumentException::class);
 
@@ -87,7 +88,7 @@ final class CommonServiceLoaderTest extends TestCase
         $this->sl->register($service);
     }
 
-    public function testCanReturnServicesForAType()
+    public function testCanReturnServicesForAType(): void
     {
         $name = $this->sl->register($this->mockService);
 
@@ -100,7 +101,7 @@ final class CommonServiceLoaderTest extends TestCase
         $this->assertArrayHasKey($name, $services);
     }
 
-    public function testCanReturnServiceForType()
+    public function testCanReturnServiceForType(): void
     {
         $this->sl->register($this->mockService);
 
@@ -109,7 +110,7 @@ final class CommonServiceLoaderTest extends TestCase
         $this->assertNotNull($service);
     }
 
-    public function testCanReturnNamedServiceForAType()
+    public function testCanReturnNamedServiceForAType(): void
     {
         $name = $this->sl->register($this->mockService);
 
@@ -118,14 +119,14 @@ final class CommonServiceLoaderTest extends TestCase
         $this->assertNotNull($service);
     }
 
-    public function testReturnsEmptyArrayForUnknownServiceType()
+    public function testReturnsEmptyArrayForUnknownServiceType(): void
     {
         $services = $this->sl->getService('unknown');
 
         $this->assertEmpty($services);
     }
 
-    public function testReturnsNullForGetUnknownNamedService()
+    public function testReturnsNullForGetUnknownNamedService(): void
     {
         $service = $this->sl->getService('Testing', 'unknown');
 

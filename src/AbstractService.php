@@ -1,24 +1,25 @@
 <?php
 
-namespace hschulz\ServiceLoader;
+declare(strict_types = 1);
+
+namespace Hschulz\ServiceLoader;
 
 /**
  *
  */
 abstract class AbstractService implements Service
 {
+    /**
+     *
+     * @var string
+     */
+    protected string $type = '';
 
     /**
      *
      * @var string
      */
-    protected $type = '';
-
-    /**
-     *
-     * @var string
-     */
-    protected $name = '';
+    protected string $name = '';
 
     /**
      *

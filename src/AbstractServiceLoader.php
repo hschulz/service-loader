@@ -1,23 +1,24 @@
 <?php
 
-namespace hschulz\ServiceLoader;
+declare(strict_types = 1);
 
-use \InvalidArgumentException;
-use function \array_key_exists;
-use function \md5;
-use function \reset;
+namespace Hschulz\ServiceLoader;
+
+use InvalidArgumentException;
+use function array_key_exists;
+use function md5;
+use function reset;
 
 /**
  *
  */
 abstract class AbstractServiceLoader implements ServiceLoader
 {
-
     /**
      * The services; grouped by type.
      * @var array
      */
-    private $services = [];
+    private array $services = [];
 
     /**
      * Will create an empty service loader.
